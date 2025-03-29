@@ -1,0 +1,32 @@
+@use '../config/variables' as *;
+@use '../config/mixins' as *;
+
+.social-links {
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: $spacer;
+    }
+  
+    &__item {
+      @include hover-effect;
+    }
+  
+    &__link {
+      display: block;
+      background: $secondary-color;
+      color: $text-color;
+      text-decoration: none;
+      font-weight: 700;
+      padding: $spacer * 0.75;
+      border-radius: $border-radius;
+      transition: background 0.3s ease;
+  
+      &:hover {
+        background: $accent-color;
+        color: $primary-color;
+      }
+    }
+  }

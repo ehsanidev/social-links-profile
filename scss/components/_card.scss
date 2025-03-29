@@ -1,0 +1,30 @@
+@use '../config/variables' as *;
+@use '../config/mixins' as *;
+
+.profile-card {
+    background: $primary-color;
+    border-radius: $border-radius * 2;
+    padding: $spacer * 2.5;
+    max-width: 24rem;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+    &__title {
+      font-size: $font-size-lg;
+      font-weight: 600;
+      margin: $spacer 0 ($spacer / 2);
+    }
+  
+    &__location {
+      color: $accent-color;
+      font-weight: 700;
+      margin-bottom: $spacer * 1.5;
+      font-size: $font-size-base;
+    }
+  
+    &__description {
+      margin-bottom: $spacer * 1.5;
+      font-size: $font-size-base;
+    }
+  }

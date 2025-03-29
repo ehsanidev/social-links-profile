@@ -1,0 +1,26 @@
+// @use 'config/variables';
+// @use 'config/mixins';
+// @use 'base/base';
+// @use 'components/avatar';
+// @use 'components/social-links';
+// @use 'components/card';
+
+// Import utilities
+@use 'config/reset';
+@use 'config/variables' as *;
+@use 'config/mixins' as *;
+
+// Import components
+@use 'components/avatar';
+@use 'components/card';
+@use 'components/social-links';
+
+// Base styles
+body {
+  font-family: $font-family-primary;
+  background: $body-bg;
+  color: $text-color;
+  min-height: 100vh;
+  @include flex-center;
+  padding: $spacer * 1.5;
+}
