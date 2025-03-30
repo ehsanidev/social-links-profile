@@ -1,3 +1,4 @@
+@use "sass:math";
 @use '../config/variables' as *;
 @use '../config/mixins' as *;
 
@@ -13,7 +14,7 @@
     &__title {
       font-size: $font-size-lg;
       font-weight: 600;
-      margin: $spacer 0 ($spacer / 2);
+      margin: $spacer 0 math.div($spacer, 2);
     }
   
     &__location {

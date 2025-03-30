@@ -1,16 +1,11 @@
-// @use 'config/variables';
-// @use 'config/mixins';
-// @use 'base/base';
-// @use 'components/avatar';
-// @use 'components/social-links';
-// @use 'components/card';
-
+@use "sass:math";
 // Import utilities
 @use 'config/reset';
 @use 'config/variables' as *;
 @use 'config/mixins' as *;
 
 // Import components
+@use 'components/bubble-background';
 @use 'components/avatar';
 @use 'components/card';
 @use 'components/social-links';
@@ -22,5 +17,5 @@ body {
   color: $text-color;
   min-height: 100vh;
   @include flex-center;
-  padding: $spacer * 1.5;
+  padding: math.div($spacer, 1.5) $spacer; // 0.666rem 1rem
 }

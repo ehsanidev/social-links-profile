@@ -1,3 +1,4 @@
+@use "sass:math";
 @use '../config/variables' as *;
 @use '../config/mixins' as *;
 
@@ -12,7 +13,8 @@
     @include hover-effect;
   
     &--small {
-      width: ($size * 0.75);
-      height: ($size * 0.75);
+      width: math.div($size, 1.333); // 88/1.333 ≈ 66px (75% of original)
+      height: math.div($size, 1.333);
+      margin: 0 auto math.div($spacer, 2);
     }
   }

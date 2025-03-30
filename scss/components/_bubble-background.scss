@@ -1,0 +1,67 @@
+// scss/components/_bubble-background.scss
+@use "sass:math"; // Required for math.random()
+@use '../config/variables' as *;
+
+.bubble-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.7;
+  animation: float linear infinite;
+  will-change: transform;
+  mix-blend-mode: overlay;
+
+  @for $i from 1 through 30 {
+    &:nth-child(#{$i}) {
+      // Use math.random() instead of global random()
+      $size: math.random(140) + 10; // Random size between 10px-150px
+      $x-pos: math.random(100); // Random horizontal position (0-100)
+      $y-pos: math.random(100); // Random vertical position (0-100)
+      $hue1: math.random(360);
+      $hue2: math.random(360);
+      $gradient-x: math.random(30) + 35;
+      $gradient-y: math.random(30) + 35;
+
+      width: #{$size}px;
+      height: #{$size}px;
+      left: #{$x-pos * 1%};
+      top: #{$y-pos * 1%};
+      
+      background: radial-gradient(
+        circle at #{$gradient-x * 1%} #{$gradient-y * 1%},
+        hsl($hue1, 70%, 60%),
+        hsl($hue2, 70%, 50%)
+      );
+      
+      animation-duration: math.random(30) + 30s;
+      animation-delay: math.random(20) * -1s;
+      transform: translate(
+        #{math.random(100) - 50}px,
+        #{math.random(100) - 50}px
+      );
+    }
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(#{math.random(200) - 100}px, #{math.random(200) - 100}px) rotate(180deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg);
+  }
+}

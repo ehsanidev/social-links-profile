@@ -1,3 +1,4 @@
+@use "sass:math";
 @use '../config/variables' as *;
 @use '../config/mixins' as *;
 
@@ -20,7 +21,7 @@
       color: $text-color;
       text-decoration: none;
       font-weight: 700;
-      padding: $spacer * 0.75;
+      padding: math.div($spacer, 1.333) $spacer; // 0.75rem
       border-radius: $border-radius;
       transition: background 0.3s ease;
   
